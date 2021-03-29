@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function romanos () {
+        var numero = document.getElementById("numero").value;
+        if (!+numero)
+            return false;
+        var digito = String(+numero).split("")
+        var key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+                "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+                "","I","II","III","IV","V","VI","VII","VIII","IX"]
+        var roman = ""
+        var i = 3;
+        while (i--){
+            roman = (key[+digito.pop() + (i * 10)] || "") + roman;
+        }
+        var result = Array(+digito.join("") + 1).join("M") + roman;
+        document.getElementById("demo").innerHTML = "El numero "+ numero + " en romanos es " + result;
+}
+    </script>
+</head>
+<body>
+        <h2>Ingrese un numero</h2>
+        <div className="entrada">
+            <input type="number" id="numero"/>
+        </div>
+        
+        <button type="submit" onClick={romanos()}>Validar</button>
+        <p id="demo"></p>
+</body>
+</html> 

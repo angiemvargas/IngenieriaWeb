@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function esBisiesto() {
+        var year = document.getElementById("numero").value;
+            
+        if (year%4===0 && year%100===0 && year%400===0){
+            document.getElementById("demo").innerHTML = "El año ingresado es bisiesto";
+            return false;
+        } 
+        
+        document.getElementById("demo").innerHTML = "El año ingresado no es bisiesto";
+        return true
+    };
+    </script>
+</head>
+<body>
+        <h2>Ingrese un año (en numeros, sin puntos ni comas)</h2>
+        <div className="entrada">
+            <input type="number" id="numero"/>
+        </div>
+        
+        <button type="submit" onClick={esBisiesto()}>Validar</button>
+        <p id="demo"></p>
+</body>
+</html> 

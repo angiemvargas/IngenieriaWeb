@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function esPangrama() {
+        var cadena = document.getElementById("texto").value;
+        const ALFABETO_MINUSCULAS = "abcdefghijklmnñopqrstuvwxy";
+        cadena = cadena.toLowerCase();
+        let alfabetoComoArreglo = Array.from(ALFABETO_MINUSCULAS);
+
+        for (let indice = 0; indice < alfabetoComoArreglo.length; indice++) {
+            let letraActual = alfabetoComoArreglo[indice];
+            
+            if (!cadena.includes(letraActual)){
+                document.getElementById("demo").innerHTML = "La cadena ingresada no es un pangrama";
+                console.log("La cadena ingresada no es un pangrama");
+                return false;
+            } 
+        }
+        document.getElementById("demo").innerHTML = "La cadena ingresada es un pangrama";
+        console.log("La cadena ingresada es un pangrama");
+        return true
+    };
+    </script>
+</head>
+<body>
+        <h2>Escribe una palabra o frase y descubre si es pangrama</h2>
+        <div className="entrada">
+            <input type="text" id="texto"/>
+        </div>
+        
+        <button type="submit" onClick={esPangrama()}>Validar</button>
+        <p id="demo"></p>
+</body>
+</html> 

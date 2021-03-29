@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function enterosNoUnicos() {
+
+        var ingresada = document.getElementById("texto").value;
+        var lista = ingresada.split(',')
+
+        for (let indice = 0; indice < lista.length; indice++) {
+            let elementoActual = lista[indice];
+
+            let nuevoArray = lista.filter(elemento => elemento === elementoActual)
+            
+            if (nuevoArray.length === 1){
+                lista.splice(indice, 1)
+            } 
+        }
+        document.getElementById("demo").innerHTML = "la lista sin numeros unicos es " + lista;
+
+    };
+    </script>
+</head>
+<body>
+        <h2>Ingrese una lista de elementos separada por comas, sin espacios</h2>
+        <div className="entrada">
+            <input type="text" id="texto"/>
+        </div>
+        
+        <button type="submit" onClick={enterosNoUnicos()}>Validar</button>
+        <p id="demo"></p>
+</body>
+</html> 
